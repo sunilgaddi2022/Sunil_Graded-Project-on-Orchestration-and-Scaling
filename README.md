@@ -71,17 +71,17 @@ Created docker compose file to trst all the dockerfile is up and running fin ewi
 Build and pushed the image to docker hub using the command mentioned below, repeated the same step for all the 3 images.
 ```
 docker build -t frontend_service:v1.0 .
-docker tag frontend_service:v1.0 flowerking21/micro_frontendservice:latest
-docker push flowerking21/micro_frontendservice:latest
+docker tag frontend_service:v1.0 sunil/micro_frontendservice:latest
+docker push sunil/micro_frontendservice:latest
 ```
 Login to AWS console, create a ECR repository and push the image to the repository.
 ```
 #Create a ECR repository 
 aws ecr create-repository --repository-name micro_frontendservice --region ap-south-1
 # Login to AWS
-aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 515210271098.dkr.ecr.ap-south-1.amazonaws.com
+aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 5150271098.dkr.ecr.ap-south-1.amazonaws.com
 # tag your image with the ECR repository image
-docker tag flowerking21/micro_frontendservice:latest 515210271098.dkr.ecr.ap-south-1.amazonaws.com/micro_frontendservice:latest
+docker tag sunil/micro_frontendservice:latest 515210271098.dkr.ecr.ap-south-1.amazonaws.com/micro_frontendservice:latest
 # push to ECR repository
 docker push 515210271098.dkr.ecr.ap-south-1.amazonaws.com/micro_frontendservice:latest
 ```
